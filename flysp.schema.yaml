@@ -21,8 +21,8 @@ switches:
     states: [ 中文, 西文 ]
   - name: full_shape
     states: [ 半角, 全角 ]
-  - name: simplification
-    states: [ 漢字, 汉字 ]
+  - name: traditionalization
+    states: [ 汉字, 漢字 ]
   - name: ascii_punct
     states: [ 。，, ．， ]
 
@@ -48,7 +48,7 @@ engine:
     - reverse_lookup_translator
     - script_translator
   filters:
-    - simplifier
+    - simplifier@traditionalize
     - uniquifier
 
 speller:
@@ -134,17 +134,22 @@ key_binder:
     - {accept: "Control+Shift+1", select: .next, when: always}
     - {accept: "Control+Shift+2", toggle: ascii_mode, when: always}
     - {accept: "Control+Shift+3", toggle: full_shape, when: always}
-    - {accept: "Control+Shift+4", toggle: simplification, when: always}
+    - {accept: "Control+Shift+4", toggle: traditionalization, when: always}
     - {accept: "Control+Shift+5", toggle: extended_charset, when: always}
     - {accept: "Control+Shift+exclam", select: .next, when: always}
     - {accept: "Control+Shift+at", toggle: ascii_mode, when: always}
     - {accept: "Control+Shift+numbersign", toggle: full_shape, when: always}
-    - {accept: "Control+Shift+dollar", toggle: simplification, when: always}
+    - {accept: "Control+Shift+dollar", toggle: traditionalization, when: always}
     - {accept: "Control+Shift+percent", toggle: extended_charset, when: always}
   import_preset: default
 
 recognizer:
   import_preset: default
+
+traditionalize:
+  option_name: traditionalization
+  opencc_config: s2t.json
+  tips: none
 
 __patch:
   # 使用八股文語言模型
