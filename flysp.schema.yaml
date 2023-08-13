@@ -158,7 +158,3 @@ traditionalize:
   option_name: traditionalization
   opencc_config: s2t.json
   tips: none
-
-# 八股文
-grammar:
-  language: zh-hans-t-essay-bgw
