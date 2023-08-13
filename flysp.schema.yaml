@@ -62,6 +62,9 @@ speller:
 
 translator:
   dictionary: flysp
+  contextual_suggestions: true
+  max_homophones: 7
+  max_homographs: 7
   # preedit_format:
   #   - xform/([nl])v/$1ü/
   #   - xform/([nl])ue/$1üe/
@@ -151,8 +154,6 @@ traditionalize:
   opencc_config: s2t.json
   tips: none
 
-__patch:
-  # 使用八股文語言模型
-  - grammar:/hans?
-  # 用家自選配置
-  - flysp.custom:/patch?
+# 八股文
+grammar:
+  language: zh-hans-t-essay-bgw
