@@ -131,9 +131,14 @@ key_binder:
     # 加减号翻页
     # - {accept: minus, send: Page_Up, when: has_menu}
     # - {accept: equal, send: Page_Down, when: has_menu}
+    - {accept: minus, send: minus, when: has_menu}
+    - {accept: equal, send: equal, when: has_menu}
     # 中括号翻页
     - {when: paging, accept: bracketleft, send: Page_Up }
     - {when: has_menu, accept: bracketright, send: Page_Down }
+    # 句号逗号直接上屏
+    - {accept: comma, send: comma, when: paging}
+    - {accept: period, send: period, when: has_menu}
     - {accept: "Control+Shift+1", select: .next, when: always}
     - {accept: "Control+Shift+2", toggle: ascii_mode, when: always}
     - {accept: "Control+Shift+3", toggle: full_shape, when: always}
