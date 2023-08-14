@@ -4,7 +4,9 @@ version: "10.9.4"
 sort: original
 use_preset_vocabulary: false
 import_tables:
-   - flysp_luna
+   - dicts/flysp_sogou
+   - dicts/flysp_zhwiki
+   - dicts/flysp_moe
 ...
 阿	aa;ek
 锕	aa;jk
