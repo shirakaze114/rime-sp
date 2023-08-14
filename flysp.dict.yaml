@@ -5,8 +5,7 @@ sort: original
 use_preset_vocabulary: false
 vocabulary: essay-zh-hans
 import_tables:
-   - dicts/zhwiki
-   - dicts/moegirl
+   - flysp_luna
 ...
 阿	aa;ek
 锕	aa;jk
