@@ -52,16 +52,14 @@ engine:
     - uniquifier
 
 speller:
-  alphabet: zyxwvutsrqponmlkjihgfedcba;
+  alphabet: zyxwvutsrqponmlkjihgfedcba:;
   delimiter: " '"
   algebra:
     - derive/^(an);(\w*)$/aj;$2/ # an == aj
     - derive/^(en);(\w*)$/ef;$2/ # en == ef
-    - derive/^(\w*);(\w)(\w)$/$1$2;$3/ # 三拼+;输入全码
-    - derive/^(\w*);(\w)(\w)$/$1;$3/ # 双拼+;输入尾码
-    - derive/^(\w*);(\w)(\w)$/$1$2/ # 三拼
+    - derive/^(\w*);(\w)(\w)$/$1:$3/ # 双拼+:输入尾码
+    - derive/^(\w*);(\w)(\w)$/$1;$2/ # 双拼+;输入首码
     - derive/^(\w*);(\w)(\w)$/$1/ # 双拼
-    - erase/^(\w*);(\w)(\w)$/ # 不接受原始编码
 
 translator:
   dictionary: flysp
