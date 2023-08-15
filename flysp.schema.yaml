@@ -65,13 +65,6 @@ speller:
 
 translator:
   dictionary: flysp
-  contextual_suggestions: true
-  max_homophones: 7
-  max_homographs: 7
-  # preedit_format:
-  #   - xform/([nl])v/$1ü/
-  #   - xform/([nl])ue/$1üe/
-  #   - xform/([jqxy])v/$1u/
 
 custom_phrase:
   dictionary: ""
