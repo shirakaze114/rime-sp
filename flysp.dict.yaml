@@ -1,7 +1,7 @@
 ---
 name: flysp
 version: "10.9.4"
-sort: original
+sort: by_weight
 use_preset_vocabulary: false
 import_tables:
    - dicts/flysp_sogou

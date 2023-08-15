@@ -59,11 +59,10 @@ speller:
     - derive/^(en);(\w*)$/ef;$2/ # en == ef
     - derive/^(ei);(\w*)$/ew;$2/ # ei ==  ew
     - derive/^(ai);(\w*)$/ad;$2/ # ai ==  ad
+    - derive/^(ao);(\w*)$/ac;$2/ # ao ==  ac
     - derive/^(\w*);(\w)(\w)$/$1;$2/ # 双拼+;+首码
     - derive/^(\w*);(\w)(\w)$/$1:$3/ # 双拼+:+尾码
-    - derive/^(\w*);(\w)(\w)$/$1`$2$3/ # 双拼+`+全码
     - derive/^(\w*);(\w*)$/$1/ # 双拼
-    - erase/^(\w*);(\w)(\w)$/ # 不接受原始编码
 
 translator:
   dictionary: flysp
