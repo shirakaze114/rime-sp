@@ -2,6 +2,7 @@
 name: flysp
 version: "10.9.4"
 sort: by_weight
+vocabulary: essay-zh-hans
 use_preset_vocabulary: false
 import_tables:
    - dicts/flysp_sogou
