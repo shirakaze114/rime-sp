@@ -4,7 +4,7 @@
 schema:
   schema_id: flysp
   name: 小鹤三拼
-  version: '0.01'
+  version: '1.00'
   author:
     - ston <ston.jia@outlook.com>
   description: |
@@ -52,17 +52,19 @@ engine:
     - uniquifier
 
 speller:
-  alphabet: zyxwvutsrqponmlkjihgfedcba;`
+  alphabet: zyxwvutsrqponmlkjihgfedcba;
   delimiter: " '"
   algebra:
     - derive/^(an);(\w*)$/aj;$2/ # an == aj
-    - derive/^(en);(\w*)$/ef;$2/ # en == ef
-    - derive/^(ei);(\w*)$/ew;$2/ # ei ==  ew
     - derive/^(ai);(\w*)$/ad;$2/ # ai ==  ad
     - derive/^(ao);(\w*)$/ac;$2/ # ao ==  ac
-    - derive/^(\w*);(\w)(\w)$/$1;$2/ # 双拼+;+首码
-    - derive/^(\w*);(\w)(\w)$/$1`$3/ # 双拼+`+尾码
+    - derive/^(en);(\w*)$/ef;$2/ # en == ef
+    - derive/^(ei);(\w*)$/ew;$2/ # ei ==  ew
     - derive/^(\w*);(\w*)$/$1/ # 双拼
+    - abbrev/^(\w*);(\w)(\w)$/$1$2/ # 双拼+首码
+    - abbrev/^(\w*);(\w)(\w)$/$1$2;$3/ # 双拼+首码+;+尾码
+    - derive/^(\w*);(\w)(\w)$/$1;$3/ # 双拼+;+尾码
+    - erase/^(\w*);(\w)(\w)$/ # 删去原始编码
 
 translator:
   dictionary: flysp
@@ -122,10 +124,9 @@ key_binder:
     - {accept: "Control+y", send: Page_Up, when: composing}
     - {accept: "Alt+v", send: Page_Up, when: composing}
     - {accept: "Control+v", send: Page_Down, when: composing}
-    - {accept: "Shift+ISO_Left_Tab", send: "`", when: composing}
-    # Tab 输入辅码
-    - {accept: "Shift+Tab", send: "`", when: composing}
-    - {accept: Tab, send: ";", when: composing}
+    - {accept: "Shift+ISO_Left_Tab", send: "Shift+Left", when: composing}
+    - {accept: "Shift+Tab", send: "Shift+Left", when: composing}
+    - {accept: Tab, send: "Shift+Right", when: composing}
     # 加减号翻页
     # - {accept: minus, send: Page_Up, when: has_menu}
     # - {accept: equal, send: Page_Down, when: has_menu}
